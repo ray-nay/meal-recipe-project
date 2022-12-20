@@ -31,6 +31,6 @@ function renderMealCard(meals) {
         </div>
       </div>
       `
-       
+            mealInfo.appendChild(card)
        })
 }
