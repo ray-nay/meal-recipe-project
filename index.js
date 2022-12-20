@@ -18,3 +18,7 @@ function fetchingMeals(){
 
     })
 }
+
+function renderMealCard(meals) {
+    
+}
