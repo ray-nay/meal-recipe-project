@@ -20,5 +20,7 @@ function fetchingMeals(){
 }
 
 function renderMealCard(meals) {
-    
+    meals.forEach((meal)=>{
+       
+       })
 }
