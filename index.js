@@ -8,5 +8,12 @@ let mealInfo= document.getElementById("card-content")
 
 
 function fetchingMeals(){
-  
+    fetch (baseUrl)
+    .then((response)=>response.json())
+    .then ((mealsData)=>{
+        console.log(mealsData.meals)
+        //createMeals(meals)
+        
+
+    })
 }
