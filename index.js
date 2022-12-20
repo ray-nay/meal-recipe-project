@@ -21,6 +21,8 @@ function fetchingMeals(){
 function renderMealCard(meals) {
     meals.forEach((meal)=>{
         let card= document.createElement("div")
+        card.className="col-12 col-md-6 col-lg-4"
+      
        
        })
 }
