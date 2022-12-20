@@ -13,6 +13,7 @@ function fetchingMeals(){
     .then ((mealsData)=>{
         console.log(mealsData.meals)
         //createMeals(meals)
+        renderMealCard(mealsData.meals)
         
 
     })
