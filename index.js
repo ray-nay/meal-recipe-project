@@ -15,12 +15,12 @@ function fetchingMeals(){
         //createMeals(meals)
         renderMealCard(mealsData.meals)
         
-
     })
 }
 
 function renderMealCard(meals) {
     meals.forEach((meal)=>{
+        let card= document.createElement("div")
        
        })
 }
