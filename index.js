@@ -30,6 +30,10 @@ function renderMealCard(meals) {
           <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
         </div>
       </div>
+      <div class="likes-section">
+      <span class="likes">0 likes</span>
+      <button class="like-button">♥</button>
+    </div>
       `
             mealInfo.appendChild(card)
        })
