@@ -39,7 +39,9 @@ function renderMealCard(meals) {
       const likesCounter= document.querySelector('.likes')
       likesCounter.innerText=`${data.likes} likes `
 
-      
+      const likeButton = document.querySelector('.like-button')
+
+
             mealInfo.appendChild(card)
        })
 }
