@@ -41,7 +41,12 @@ function renderMealCard(meals) {
 
       const likeButton = document.querySelector('.like-button')
 
+      likeButton.addEventListener("click", function(event){
+        likesCounter.innerText=incrementLikes(data)
+      })
+
 
             mealInfo.appendChild(card)
        })
 }
+
