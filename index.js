@@ -80,6 +80,6 @@ let searchButton=document.getElementById("show-meal")
 let searchedMeal=document.getElementById("your-meal")
 
 searchInput.addEventListener("change", ()=>{
-
+  mealInfo.innerHTML= ``
   
 })
