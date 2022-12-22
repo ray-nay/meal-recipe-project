@@ -6,3 +6,32 @@
 #search{
     width: 200px;
 }
+#click-recipe{
+    background-color: mediumslateblue;
+    text-decoration: underline;
+}
+#view-recipe{
+    content: "✅";
+    display: inline-block;
+    margin-right: 0.2rem;
+    font-size:x-large;
+   
+}
+.card-img-top{
+    width: 350px;
+    height: 500px;
+    margin-right: 0px;
+}
+#insert-comment{
+    width: 400px;
+    height:50px;
+    font-size: large;
+    
+}
+#comment-button{
+    font-size: 24px;
+    background-color: mediumslateblue;
+    text-decoration: underline;
+    width:400px;
+    height:50px
+}

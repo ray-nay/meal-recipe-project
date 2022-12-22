@@ -33,6 +33,9 @@ function renderMealCard(meals) {
 
       //initializing the variable likes.
       let likes=0; 
+      let mealRecipe=meal.strInstructions
+      //initializing the recipe variable.
+      //let recipe=`${meal.strInstructions}`
 
         let card= document.createElement("div")
         card.className="col-12 col-md-6 col-lg-4"
@@ -41,7 +44,9 @@ function renderMealCard(meals) {
         <img src= "${meal.strMealThumb}" class="card-img-top" alt="Corba">
         <div class="card-body">
           <h5 class="card-title">${meal.strMeal}</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text">What you wanna cook?</p>
+          <button id= "click-recipe" class="recipe-button">View Recipe</button>
+          
         </div>
       </div>
       <div class="likes-section">
@@ -54,6 +59,36 @@ function renderMealCard(meals) {
         //creating a variable to store the selected classes of the like button and number of likes.
       const likeButton = card.querySelector('#click-like')
       let likesCounter= card.querySelector('#likes-number')
+      const recipeButton = card.querySelector('#click-recipe')
+      const viewRecipe=mealInfo.querySelector("#view-recipe")
+      recipeButton.addEventListener("click", ()=>{
+        //document.body.innerHTML=``
+        mealInfo.innerHTML=`
+        <img src= "${meal.strMealThumb}" class="card-img-top" alt="Corba">
+        <h5 class="card-title">${meal.strMeal}</h5>
+        <span id= "view-recipe" class="recipe">${meal.strInstructions} </span>
+        <input type="text" name="comments" id="insert-comment" alt="Insert your comment"><br>
+        <button button id="comment-button"style='font-size:24px'>Leave a comment <i class='far fa-comment-dots'></i></button>
+        `
+        fetch (baseUrl)
+        .then((response)=>response.json())
+        .then ((mealsData)=>{
+            console.log(meal.strInstructions)
+            //viewRecipe.textContent= meal.strInstructions
+            // let mealsRecipe=renderRecipe(mealsData.meals)
+            // console.log(mealsRecipe)
+
+
+
+           // renderMealCard(meal.strInstructions)
+
+
+        })
+      
+      })
+
+
+      
   
       
       //adding an event listener that will listen for a click to the like button.
@@ -70,6 +105,8 @@ function renderMealCard(meals) {
             //appending the child card to its parent mealInfo.
             mealInfo.appendChild(card)
        })
+
+     
 }
 
 //creating variables to store the search input and button. 
@@ -110,3 +147,11 @@ function searchMeal(mealsData){
   return mealResult
 
 }
+
+
+
+
+
+
+
+
