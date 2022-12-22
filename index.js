@@ -7,12 +7,15 @@ fetchingMeals()
 let mealInfo= document.getElementById("card-content")
 
 
+
 function fetchingMeals(){
     fetch (baseUrl)
     .then((response)=>response.json())
     .then ((mealsData)=>{
         console.log(mealsData.meals)
         //createMeals(meals)
+        //let mealsArray= searchMeal(mealsData.meals)
+
         renderMealCard(mealsData.meals)
         
     })
@@ -20,6 +23,9 @@ function fetchingMeals(){
 
 function renderMealCard(meals) {
     meals.forEach((meal)=>{
+
+      let likes=0; 
+
         let card= document.createElement("div")
         card.className="col-12 col-md-6 col-lg-4"
         card.innerHTML=`
@@ -31,18 +37,30 @@ function renderMealCard(meals) {
         </div>
       </div>
       <div class="likes-section">
-      <span class="likes">0 likes</span>
-      <button class="like-button">♥</button>
+      <span id= "likes-number" class="likes">0 Likes</span>
+      <button id= "click-like" class="like-button">♥</button>
     </div>
       `
 
-      const likesCounter= document.querySelector('.likes')
-      likesCounter.innerText=`${data.likes} likes `
+    
+        // console.log(likesCounter)
+      const likeButton = card.querySelector('#click-like')
+      let likesCounter= card.querySelector('#likes-number')
+  
+      
+      
+      likeButton.addEventListener("click", ()=>{ 
 
-      const likeButton = document.querySelector('.like-button')
+       
+        likes ++
+        console.log(likes)
+        likesCounter.innerText=`${likes} likes `
+        // let likes=parseInt(event.target.value)
+        // let currentLikes=parseInt(likeButton.textContent)
+        // let newLikes= (likes+=currentLikes)
+        
 
-      likeButton.addEventListener("click", function(event){
-        likesCounter.innerText=incrementLikes(data)
+
       })
 
 
@@ -50,3 +68,18 @@ function renderMealCard(meals) {
        })
 }
 
+// function incrementLikes(){
+//   let likes=0
+//   let newLikes=likes + 1
+  
+
+// }
+// incrementLikes()
+let searchInput=document.getElementById("search")
+let searchButton=document.getElementById("show-meal")
+let searchedMeal=document.getElementById("your-meal")
+
+searchInput.addEventListener("change", ()=>{
+
+  
+})
