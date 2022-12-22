@@ -44,7 +44,7 @@ function renderMealCard(meals) {
         <img src= "${meal.strMealThumb}" class="card-img-top" alt="Corba">
         <div class="card-body">
           <h5 class="card-title">${meal.strMeal}</h5>
-          <p class="card-text">What you wanna cook?</p>
+          <p class="card-text">Wanna make some ${meal.strMeal}? </p>
           <button id= "click-recipe" class="recipe-button">View Recipe</button>
           
         </div>
@@ -61,20 +61,39 @@ function renderMealCard(meals) {
       let likesCounter= card.querySelector('#likes-number')
       const recipeButton = card.querySelector('#click-recipe')
       const viewRecipe=mealInfo.querySelector("#view-recipe")
+      
+    
+
+
+
       recipeButton.addEventListener("click", ()=>{
         //document.body.innerHTML=``
         mealInfo.innerHTML=`
         <img src= "${meal.strMealThumb}" class="card-img-top" alt="Corba">
         <h5 class="card-title">${meal.strMeal}</h5>
         <span id= "view-recipe" class="recipe">${meal.strInstructions} </span>
-        <input type="text" name="comments" id="insert-comment" alt="Insert your comment"><br>
+        <span id= "view-ingredients" class="ingredients"> Ingredients:
+        ${meal.strIngredient1},
+        ${meal.strIngredient2},
+        ${meal.strIngredient3},
+        ${meal.strIngredient4},
+        ${meal.strIngredient5},
+        ${meal.strIngredient6}.
+
+        
+        
+        
+        
+        </span>
+        
+        <input type="text" id="comment-box" placeholder="Enter comment">
         <button button id="comment-button"style='font-size:24px'>Leave a comment <i class='far fa-comment-dots'></i></button>
         <span id= "comments-section" class="your-comments"></span>
         `
         fetch (baseUrl)
         .then((response)=>response.json())
         .then ((mealsData)=>{
-            console.log(meal.strInstructions)
+            //console.log(meal.strInstructions)
             //viewRecipe.textContent= meal.strInstructions
             // let mealsRecipe=renderRecipe(mealsData.meals)
             // console.log(mealsRecipe)
@@ -87,7 +106,7 @@ function renderMealCard(meals) {
         })
       
       })
-
+   
 
       
   
@@ -106,7 +125,7 @@ function renderMealCard(meals) {
             //appending the child card to its parent mealInfo.
             mealInfo.appendChild(card)
        })
-
+     
      
 }
 
@@ -148,7 +167,16 @@ function searchMeal(mealsData){
   return mealResult
 
 }
-
+// const comment= mealInfo.querySelector("#comment-button");
+// comment.addEventListener("click",()=>{
+//  let commentBoxValue= document.getElementById("comment-box").value;
+//  
+//  let li = document.createElement("li");
+//  let text = document.createTextNode(commentBoxValue);
+//  li.appendChild(text);
+//  document.getElementById("unordered").appendChild(li);
+//  
+// });
 
 
 
