@@ -81,5 +81,15 @@ let searchedMeal=document.getElementById("your-meal")
 
 searchInput.addEventListener("change", ()=>{
   mealInfo.innerHTML= ``
-  
+  fetch (baseUrl)
+  .then((response)=>response.json())
+  .then ((mealsData)=>{
+      console.log(mealsData.meals)
+      //createMeals(meals)
+      let mealsArray= searchMeal(mealsData.meals)
+      console.log(mealsArray)
+      renderMealCard(mealsArray)
+      
+  })
+console.log(searchInput.value)
 })
