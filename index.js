@@ -69,6 +69,7 @@ function renderMealCard(meals) {
         <span id= "view-recipe" class="recipe">${meal.strInstructions} </span>
         <input type="text" name="comments" id="insert-comment" alt="Insert your comment"><br>
         <button button id="comment-button"style='font-size:24px'>Leave a comment <i class='far fa-comment-dots'></i></button>
+        <span id= "comments-section" class="your-comments"></span>
         `
         fetch (baseUrl)
         .then((response)=>response.json())
