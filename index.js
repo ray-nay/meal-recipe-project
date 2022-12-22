@@ -2,28 +2,36 @@
 
 
 // })
+
+//variable to store the baseUrl
 const baseUrl="https://www.themealdb.com/api/json/v1/1/search.php?s="
 fetchingMeals()
+
+//variable to store the parent div for the cards 
 let mealInfo= document.getElementById("card-content")
 
 
-
+//function to fetch the meals from the public api.
 function fetchingMeals(){
     fetch (baseUrl)
     .then((response)=>response.json())
     .then ((mealsData)=>{
         console.log(mealsData.meals)
-        //createMeals(meals)
-        //let mealsArray= searchMeal(mealsData.meals)
-
+        
+      //hoisting the function to render the meals to the browser.
+      //mealsData is an array and to access the specific meal, dot notation is used i.e mealsData.meals.
         renderMealCard(mealsData.meals)
         
     })
 }
 
+
+//function to render the meals to the browser.
+//we loop through each meal using forEach to render all 25 meals on the landing page.
 function renderMealCard(meals) {
     meals.forEach((meal)=>{
 
+      //initializing the variable likes.
       let likes=0; 
 
         let card= document.createElement("div")
@@ -43,58 +51,61 @@ function renderMealCard(meals) {
       `
 
     
-        // console.log(likesCounter)
+        //creating a variable to store the selected classes of the like button and number of likes.
       const likeButton = card.querySelector('#click-like')
       let likesCounter= card.querySelector('#likes-number')
   
       
-      
+      //adding an event listener that will listen for a click to the like button.
       likeButton.addEventListener("click", ()=>{ 
 
-       
+       //incrementing on the likes variable.
         likes ++
         console.log(likes)
+
+        //displaying on the browser the number of likes.
         likesCounter.innerText=`${likes} likes `
-        // let likes=parseInt(event.target.value)
-        // let currentLikes=parseInt(likeButton.textContent)
-        // let newLikes= (likes+=currentLikes)
         
-
-
       })
-
-
+            //appending the child card to its parent mealInfo.
             mealInfo.appendChild(card)
        })
 }
 
-// function incrementLikes(){
-//   let likes=0
-//   let newLikes=likes + 1
-  
-
-// }
-// incrementLikes()
+//creating variables to store the search input and button. 
 let searchInput=document.getElementById("search")
 let searchButton=document.getElementById("show-meal")
 let searchedMeal=document.getElementById("your-meal")
 
+//adding an event listener that will listen for a change in value in the search input.
 searchInput.addEventListener("change", ()=>{
+
+  //clearing the innerHTML contents in order to display only the searched items.
   mealInfo.innerHTML= ``
+
+  //fetching mealsData from the public api after the search is performed.
   fetch (baseUrl)
   .then((response)=>response.json())
   .then ((mealsData)=>{
       console.log(mealsData.meals)
-      //createMeals(meals)
+      
+      //storing the searchMeal function in the variable mealsArray.
+      //passing the parameter mealsData.meals to the function searchMeal.
       let mealsArray= searchMeal(mealsData.meals)
       console.log(mealsArray)
+
+      //calling the render  MealCard function while giving it the parameter mealsArray.
       renderMealCard(mealsArray)
       
   })
 console.log(searchInput.value)
 })
+
+//declaring the searchMeal function.
 function searchMeal(mealsData){
-  // let mealResult=mealsData.filter(meal=> meal.strMeal.toLowerCase()===searchInput.value.toLowerCase())
+
+ //filter through the mealsData to find a match for the searchInput.value.
+ //store desired result in variable called mealResult.
   let mealResult=mealsData.filter(meal=> meal.strMeal.toLowerCase().includes(searchInput.value.toLowerCase()))
   return mealResult
 
