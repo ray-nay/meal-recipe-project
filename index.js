@@ -93,3 +93,9 @@ searchInput.addEventListener("change", ()=>{
   })
 console.log(searchInput.value)
 })
+function searchMeal(mealsData){
+  // let mealResult=mealsData.filter(meal=> meal.strMeal.toLowerCase()===searchInput.value.toLowerCase())
+  let mealResult=mealsData.filter(meal=> meal.strMeal.toLowerCase().includes(searchInput.value.toLowerCase()))
+  return mealResult
+
+}
