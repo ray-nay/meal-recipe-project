@@ -4,7 +4,13 @@
     margin-right: 0px;
 }
 #search{
-    width: 200px;
+    width: 500px;
+}
+.popup img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 #click-recipe{
     background-color: mediumslateblue;
@@ -14,27 +20,28 @@
     content: "✅";
     display: inline-block;
     margin-right: 0.2rem;
-    font-size:x-large;
+    font-size:medium;
    
 }
 .card-img-top{
     width: 350px;
-    height: 500px;
+    height: 300px;
     margin-right: 0px;
 }
 #comment-box{
     width: 400px;
-    height:50px;
-    font-size: large;
+    height:32px;
+    font-size: medium;
     
 }
 #comment-button{
-    font-size: 24px;
+    font-size: 20px;
     background-color: mediumslateblue;
     text-decoration: underline;
-    width:400px;
-    height:50px
+    width:200px;
+    height:35px;
+    margin-bottom: 10px;
 }
 #view-ingredients{
-    font-size: x-large;
+    font-size: medium;
 }

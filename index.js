@@ -69,10 +69,12 @@ function renderMealCard(meals) {
       recipeButton.addEventListener("click", ()=>{
         //document.body.innerHTML=``
         mealInfo.innerHTML=`
-        <img src= "${meal.strMealThumb}" class="card-img-top" alt="Corba">
+        <div class="popup">
+        <img src= "${meal.strMealThumb}" class="card-img-top" alt=${meal.strMeal}>
         <h5 class="card-title">${meal.strMeal}</h5>
         <span id= "view-recipe" class="recipe">${meal.strInstructions} </span>
-        <span id= "view-ingredients" class="ingredients"> Ingredients:
+        <button type="button" style='width:auto;'><a href="index.html">Back</a></button><br>
+        <span id= "view-ingredients" class="ingredients"><b> Ingredients:
         ${meal.strIngredient1},
         ${meal.strIngredient2},
         ${meal.strIngredient3},
@@ -84,11 +86,11 @@ function renderMealCard(meals) {
         
         
         
-        </span>
-        
+        </b></span><br><br>
         <input type="text" id="comment-box" placeholder="Enter comment">
-        <button button id="comment-button"style='font-size:24px'>Leave a comment <i class='far fa-comment-dots'></i></button>
+        <button button id="comment-button">Leave a comment <i class='far fa-comment-dots'></i></button>
         <span id= "comments-section" class="your-comments"></span>
+        </div>
         `
         fetch (baseUrl)
         .then((response)=>response.json())
@@ -161,8 +163,8 @@ console.log(searchInput.value)
 //declaring the searchMeal function.
 function searchMeal(mealsData){
 
- //filter through the mealsData to find a match for the searchInput.value.
- //store desired result in variable called mealResult.
+ //filter through the mealsData to find a match for the searchInput.value.
+ //store desired result in variable called mealResult.
   let mealResult=mealsData.filter(meal=> meal.strMeal.toLowerCase().includes(searchInput.value.toLowerCase()))
   return mealResult
 
@@ -170,17 +172,10 @@ function searchMeal(mealsData){
 // const comment= mealInfo.querySelector("#comment-button");
 // comment.addEventListener("click",()=>{
 //  let commentBoxValue= document.getElementById("comment-box").value;
-//  
+//  
 //  let li = document.createElement("li");
 //  let text = document.createTextNode(commentBoxValue);
 //  li.appendChild(text);
 //  document.getElementById("unordered").appendChild(li);
-//  
+//  
 // });
-
-
-
-
-
-
-
