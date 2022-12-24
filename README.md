@@ -24,6 +24,18 @@ This project is a website application that displays to the user a list of all th
 3. JavaScript
 4. Public api: 'https://www.themealdb.com/api/json/v1/1/search.php?s='
 *****
+
+### Landing page 
+This is the landing page.
+`[Landing page](./images/landingpage.png)`
+### Search result(specific item) and comments page 
+This is the specific meal and comments on the meal.
+`[Landing page](./images/commentspage.png)`
+### Search results(variety as per letter input)
+This is the search results based on a letter.
+`[Landing page](./images/searchresults.png)`
+
+
 ## Contact Information
 * catherine.mumbi@student.moringaschool.com
 *****

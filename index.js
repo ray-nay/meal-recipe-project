@@ -73,7 +73,7 @@ function renderMealCard(meals) {
         <img src= "${meal.strMealThumb}" class="card-img-top" alt=${meal.strMeal}>
         <h5 class="card-title">${meal.strMeal}</h5>
         <span id= "view-recipe" class="recipe">${meal.strInstructions} </span>
-        <button type="button" style='width:auto;'><a href="index.html">Back</a></button><br>
+        
         <span id= "view-ingredients" class="ingredients"><b> Ingredients:
         ${meal.strIngredient1},
         ${meal.strIngredient2},
@@ -82,14 +82,16 @@ function renderMealCard(meals) {
         ${meal.strIngredient5},
         ${meal.strIngredient6}.
 
-        
-        
+        <br>
+        <button type="button" style='width:auto;'><a href="index.html">Back</a></button><br>
         
         
         </b></span><br><br>
+        <form id="comment-form" >
         <input type="text" id="comment-box" placeholder="Enter comment">
-        <button button id="comment-button">Leave a comment <i class='far fa-comment-dots'></i></button>
-        <span id= "comments-section" class="your-comments"></span>
+        <button id="comment-button" type="submit">Leave a comment <i class='far fa-comment-dots'></i></button>
+        </form>
+        <div id= "comments-section" class="your-comments"></div>
         </div>
         `
         fetch (baseUrl)
@@ -106,7 +108,25 @@ function renderMealCard(meals) {
 
 
         })
-      
+        const comment= mealInfo.querySelector("#comment-form");
+        const userComments= mealInfo.querySelector("#comments-section")
+        comment.addEventListener("submit",(e)=>{
+         e.preventDefault() 
+         let commentBoxValue= document.getElementById("comment-box").value;
+         console.log(commentBoxValue)
+         let newComments = document.createElement("p")
+         newComments.textContent=commentBoxValue
+         userComments.appendChild(newComments)
+        commentBoxValue.textContent=``
+
+        //  let text = document.createTextNode(commentBoxValue);
+        //  li.appendChild(text);
+        //  document.getElementById("unordered").appendChild(li);
+         
+        });
+
+
+
       })
    
 
@@ -169,13 +189,4 @@ function searchMeal(mealsData){
   return mealResult
 
 }
-// const comment= mealInfo.querySelector("#comment-button");
-// comment.addEventListener("click",()=>{
-//  let commentBoxValue= document.getElementById("comment-box").value;
-//  
-//  let li = document.createElement("li");
-//  let text = document.createTextNode(commentBoxValue);
-//  li.appendChild(text);
-//  document.getElementById("unordered").appendChild(li);
-//  
-// });
+
