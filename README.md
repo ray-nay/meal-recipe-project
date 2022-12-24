@@ -27,13 +27,13 @@ This project is a website application that displays to the user a list of all th
 
 ### Landing page 
 This is the landing page.
-`[Landing page](./images/landingpage.png)`
+[Landing page](./images/landingpage.png)
 ### Search result(specific item) and comments page 
 This is the specific meal and comments on the meal.
-`[Landing page](./images/commentspage.png)`
+[Comments page](./images/commentspage.png)
 ### Search results(variety as per letter input)
 This is the search results based on a letter.
-`[Landing page](./images/searchresults.png)`
+[Search page](./images/searchresults.png)
 
 
 ## Contact Information
